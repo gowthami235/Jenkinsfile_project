@@ -15,13 +15,13 @@ pipeline {
 
     stage('Compile Code') {
       steps {
-        sh 'mvn compile'
+        sh 'mvn compile -Dmaven.compiler.release=11'
       }
     }
 
     stage('Test Code') {
       steps {
-        sh 'mvn test'
+        sh 'mvn test -Dmaven.compiler.release=11'
       }
       post{
         success{
@@ -33,7 +33,7 @@ pipeline {
 
     stage('Package Code') {
       steps {
-        sh 'mvn package'
+        sh 'mvn package -Dmaven.compiler.release=11'
       }
     }
   }
